@@ -35,7 +35,7 @@ pipeline {
     }
     stage("Docker Login") {
     steps {
-        sh 'docker login -u deepak27177 -p $DOCKER_HUB_PASSWORD'
+        sh 'docker login -u deepak2717 -p $DOCKER_HUB_PASSWORD'
     }
     }
 
