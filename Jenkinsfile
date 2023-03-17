@@ -9,7 +9,7 @@ pipeline {
     stage("Git Clone"){
         steps {
         git credentialsId: $GIT_CREDENTIALS, url: 'https://github.com/devops-aws-geek/devops-springboot-with-docker.git'
-		}
+	}
     }
 
     stage('Gradle Build') {
@@ -26,12 +26,12 @@ pipeline {
         sh 'docker tag devopswithdeepak-docker-demo deepak2717/devopswithdeepak-docker-demo:devopswithdeepak-docker-demo'
 		
     }
-	}
-    satge("Docker Login") {
+    }
+    stage("Docker Login") {
     steps {
         sh 'docker login -u rahulwagh17 -p $DOCKER_HUB_PASSWORD'
     }
-	}
+    }
 
     stage("Push Image to Docker Hub"){
         sh 'docker push  deepak2717/devopswithdeepak-docker-demo:devopswithdeepak-docker-demo'
@@ -50,6 +50,6 @@ pipeline {
         sshCommand remote: remote, command: "kubectl apply -f k8s-spring-boot-deployment.yml"
         }
     }
-	}
+  }
  }
 }
