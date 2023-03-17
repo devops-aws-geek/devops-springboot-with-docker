@@ -34,7 +34,9 @@ pipeline {
     }
 
     stage("Push Image to Docker Hub"){
+    steps {
         sh 'docker push  deepak2717/devopswithdeepak-docker-demo:devopswithdeepak-docker-demo'
+    }
     }
 
     stage("SSH Into k8s Server and deploy") {
